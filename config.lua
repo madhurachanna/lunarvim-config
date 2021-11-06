@@ -1,12 +1,13 @@
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "miramare"
+lvim.colorscheme = "srcery"
 vim.opt.timeoutlen = 500
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.list_extend(lvim.lsp.override, { "volar", "eslint", "tsserver", "eslintrc" })
 lvim.lsp.buffer_mappings.normal_mode['K'] = nil
 lvim.lsp.buffer_mappings.normal_mode['gk'] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" }
+lvim.lsp.automatic_servers_installation = false
 
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
@@ -40,6 +41,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+  "vue"
 }
 
 -- set a formatter if you want to override the default lsp one (if it exists)
@@ -60,7 +62,8 @@ lvim.plugins = {
     {"franbach/miramare"},
     {"JoosepAlviste/nvim-ts-context-commentstring"},
     {"tpope/vim-fugitive"},
-    {"nvim-telescope/telescope-media-files.nvim"}
+    {"nvim-telescope/telescope-media-files.nvim"},
+    {"srcery-colors/srcery-vim"}
 }
 
 ---------------------------------------------------------------------
