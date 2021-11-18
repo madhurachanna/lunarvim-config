@@ -1,6 +1,9 @@
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "srcery"
+-- lvim.colorscheme = "oceanic_material"
+lvim.colorscheme = "everforest"
+-- lvim.colorscheme = "miramare"
+-- lvim.colorscheme = "deus"
 vim.opt.timeoutlen = 500
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -59,16 +62,27 @@ lvim.builtin.treesitter.ensure_installed = {
 
 -- Additional Plugins
 lvim.plugins = {
-    {"franbach/miramare"},
     {"JoosepAlviste/nvim-ts-context-commentstring"},
     {"tpope/vim-fugitive"},
     {"nvim-telescope/telescope-media-files.nvim"},
-    {"srcery-colors/srcery-vim"}
+    -- {"github/copilot.vim"},
+
+    -- Themes
+    {"glepnir/oceanic-material"},
+    {"franbach/miramare"},
+    {"sainnhe/everforest"},
+    {"ajmwagar/vim-deus"},
 }
 
 ---------------------------------------------------------------------
 -- Keymappings
 ---------------------------------------------------------------------
+
+-- Copilot
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
+-- vim.api.nvim_set_keymap("i", "<Right>", 'copilot#Accept("")', { expr = true, silent = true })
+
 
 -- Better nav for omnicomplete
 vim.cmd('inoremap <expr> <c-j> (\"\\<C-n>\")')
@@ -172,14 +186,16 @@ lvim.builtin.which_key.mappings = {
         name = " Git",
         g = {"<cmd>vertical G<cr><cmd>vertical resize -15<cr>", "Git status"},
         p = {"<cmd>Git -c push.default=current push<cr>", "Git push"},
-
+        h = {"<cmd>diffget //2<cr>", "Diff-get left"},
+        l = {"<cmd>diffget //3<cr>", "Diff-get right"},
         d = {"<cmd>Gvdiffsplit<cr><cmd>windo w<cr>", "Git diff"},
-        j = {"<cmd>NextHunk<cr>", "Next Hunk"},
-        k = {"<cmd>PrevHunk<cr>", "Prev Hunk"},
+        -- j = {"<cmd>NextHunk<cr>", "Next Hunk"},
+        -- k = {"<cmd>PrevHunk<cr>", "Prev Hunk"},
         -- p = {"<cmd>PreviewHunk<cr>", "Preview Hunk"},
-        r = {"<cmd>ResetHunk<cr>", "Reset Hunk"},
-        R = {"<cmd>ResetBuffer<cr>", "Reset Buffer"},
-        s = {"<cmd>StageHunk<cr>", "Stage Hunk"},
+        -- r = {"<cmd>ResetHunk<cr>", "Reset Hunk"},
+        -- R = {"<cmd>ResetBuffer<cr>", "Reset Buffer"},
+        -- s = {"<cmd>StageHunk<cr>", "Stage Hunk"},
+        s = {"<cmd>Telescope git_stash<cr>", "Open changed file"},
         u = {"<cmd>UndoStageHunk<cr>", "Undo Stage Hunk"},
         o = {"<cmd>Telescope git_status<cr>", "Open changed file"},
         b = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
@@ -245,39 +261,4 @@ lvim.builtin.which_key.mappings = {
         z = {"<cmd>TZAtaraxis<cr>", "toggle zen"},
     }
 }
-
-
-
-
--- generic LSP settings
--- you can set a custom on_attach function that will be used for all the language servers
--- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
--- lvim.lsp.on_attach_callback = function(client, bufnr)
---   local function buf_set_option(...)
---     vim.api.nvim_buf_set_option(bufnr, ...)
---   end
---   --Enable completion triggered by <c-x><c-o>
---   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
--- end
--- you can overwrite the null_ls setup table (useful for setting the root_dir function)
--- lvim.lsp.null_ls.setup = {
---   root_dir = require("lspconfig").util.root_pattern("Makefile", ".git", "node_modules"),
--- }
--- or if you need something more advanced
--- lvim.lsp.null_ls.setup.root_dir = function(fname)
---   if vim.bo.filetype == "javascript" then
---     return require("lspconfig/util").root_pattern("Makefile", ".git", "node_modules")(fname)
---       or require("lspconfig/util").path.dirname(fname)
---   elseif vim.bo.filetype == "php" then
---     return require("lspconfig/util").root_pattern("Makefile", ".git", "composer.json")(fname) or vim.fn.getcwd()
---   else
---     return require("lspconfig/util").root_pattern("Makefile", ".git")(fname) or require("lspconfig/util").path.dirname(fname)
---   end
--- end
-
-
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }
 
