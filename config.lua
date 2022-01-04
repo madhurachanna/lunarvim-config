@@ -2,12 +2,16 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 -- lvim.colorscheme = "oceanic_material"
 lvim.colorscheme = "everforest"
--- lvim.colorscheme = "miramare"
+lvim.colorscheme = "miramare"
+-- lvim.colorscheme = "zephyr"
 -- lvim.colorscheme = "deus"
 vim.opt.timeoutlen = 500
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.list_extend(lvim.lsp.override, { "volar", "eslint", "tsserver", "eslintrc" })
+-- local opts = {}
+require("lvim.lsp.manager").setup("tailwindcss", {})
+require("lvim.lsp.manager").setup("typescript", {})
 lvim.lsp.buffer_mappings.normal_mode['K'] = nil
 lvim.lsp.buffer_mappings.normal_mode['gk'] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" }
 lvim.lsp.automatic_servers_installation = false
@@ -66,6 +70,8 @@ lvim.plugins = {
     {"tpope/vim-fugitive"},
     {"nvim-telescope/telescope-media-files.nvim"},
     -- {"github/copilot.vim"},
+    {"glepnir/zephyr-nvim"},
+    -- {"mhinz/vim-startify"},
 
     -- Themes
     {"glepnir/oceanic-material"},
@@ -81,7 +87,7 @@ lvim.plugins = {
 -- Copilot
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
--- vim.api.nvim_set_keymap("i", "<Right>", 'copilot#Accept("")', { expr = true, silent = true })
+vim.api.nvim_set_keymap("i", "<Right>", 'copilot#Accept("")', { expr = true, silent = true })
 
 
 -- Better nav for omnicomplete
@@ -132,9 +138,8 @@ vim.api.nvim_set_keymap('i', 'jj', '<ESC>', {noremap = true, silent = true})
 
 
 -- Tab switch buffer
-vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', {noremap = true, silent = true})
-
+lvim.keys.normal_mode["<Tab>"] = ":BufferNext<CR>"
+lvim.keys.normal_mode["<S-Tab>"] = ":BufferPrevious<CR>"
 
 -- Fix to get netrw's gx command to work correctly
 vim.api.nvim_set_keymap('n', 'gx', ":call netrw#BrowseX(expand((exists('g:netrw_gx')? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<cr>", {noremap = true, silent = true})
