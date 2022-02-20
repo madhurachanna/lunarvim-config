@@ -1,7 +1,7 @@
 lvim.log.level = "warn"
 lvim.format_on_save = true
 -- lvim.colorscheme = "oceanic_material"
-lvim.colorscheme = "everforest"
+-- lvim.colorscheme = "everforest"
 lvim.colorscheme = "miramare"
 -- lvim.colorscheme = "zephyr"
 -- lvim.colorscheme = "deus"
@@ -10,6 +10,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.list_extend(lvim.lsp.override, { "volar", "eslint", "tsserver", "eslintrc" })
 -- local opts = {}
+require("lvim.lsp.manager").setup("vuels", {})
 require("lvim.lsp.manager").setup("tailwindcss", {})
 lvim.lsp.buffer_mappings.normal_mode['K'] = nil
 lvim.lsp.buffer_mappings.normal_mode['gk'] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" }
@@ -154,6 +155,7 @@ lvim.builtin.which_key.mappings = {
     [" "] = "which_key_ignore",
     [";"] = " Dashboard",
     ["e"] = { "<cmd>NvimTreeToggle<cr>",  " Explorer" },
+    ["s"] = { "<cmd>:wq<cr>",  "Save" },
     ["h"] = " No Highlight",
     ["T"] = " Terminal",
     p = {
