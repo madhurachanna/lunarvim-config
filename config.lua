@@ -27,7 +27,6 @@ lvim.builtin.treesitter.indent.enable = false
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.context_commentstring.enable = true
--- lvim.builtin.treesitter.context_commentstring.enable_autocmd = false
 lvim.builtin.comment.pre_hook = function(ctx)
     return require('ts_context_commentstring.internal').calculate_commentstring()
 end
@@ -41,7 +40,6 @@ lvim.builtin.treesitter.ensure_installed = {
   "c",
   "javascript",
   "json",
-  "lua",
   "python",
   "typescript",
   "css",
