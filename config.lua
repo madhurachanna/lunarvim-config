@@ -137,8 +137,8 @@ vim.api.nvim_set_keymap('i', 'jj', '<ESC>', {noremap = true, silent = true})
 
 
 -- Tab switch buffer
-lvim.keys.normal_mode["<Tab>"] = ":BufferNext<CR>"
-lvim.keys.normal_mode["<S-Tab>"] = ":BufferPrevious<CR>"
+lvim.keys.normal_mode["<Tab>"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
 
 -- Fix to get netrw's gx command to work correctly
 vim.api.nvim_set_keymap('n', 'gx', ":call netrw#BrowseX(expand((exists('g:netrw_gx')? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<cr>", {noremap = true, silent = true})
@@ -155,7 +155,7 @@ lvim.builtin.which_key.mappings = {
     [" "] = "which_key_ignore",
     [";"] = " Dashboard",
     ["e"] = { "<cmd>NvimTreeToggle<cr>",  " Explorer" },
-    ["s"] = { "<cmd>:wq<cr>",  "Save" },
+    ["s"] = { "<cmd>:w<cr>",  "Save" },
     ["h"] = " No Highlight",
     ["T"] = " Terminal",
     p = {
