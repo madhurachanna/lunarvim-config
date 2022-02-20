@@ -11,7 +11,6 @@ vim.opt.shiftwidth = 4
 vim.list_extend(lvim.lsp.override, { "volar", "eslint", "tsserver", "eslintrc" })
 -- local opts = {}
 require("lvim.lsp.manager").setup("tailwindcss", {})
-require("lvim.lsp.manager").setup("typescript", {})
 lvim.lsp.buffer_mappings.normal_mode['K'] = nil
 lvim.lsp.buffer_mappings.normal_mode['gk'] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" }
 lvim.lsp.automatic_servers_installation = false
@@ -69,9 +68,8 @@ lvim.plugins = {
     {"JoosepAlviste/nvim-ts-context-commentstring"},
     {"tpope/vim-fugitive"},
     {"nvim-telescope/telescope-media-files.nvim"},
-    -- {"github/copilot.vim"},
     {"glepnir/zephyr-nvim"},
-    -- {"mhinz/vim-startify"},
+    {"tomlion/vim-solidity"},
 
     -- Themes
     {"glepnir/oceanic-material"},
@@ -87,7 +85,7 @@ lvim.plugins = {
 -- Copilot
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
-vim.api.nvim_set_keymap("i", "<Right>", 'copilot#Accept("")', { expr = true, silent = true })
+-- vim.api.nvim_set_keymap("i", "<Right>", 'copilot#Accept("")', { expr = true, silent = true })
 
 
 -- Better nav for omnicomplete
@@ -155,7 +153,7 @@ vim.cmd('vnoremap P "0P')
 lvim.builtin.which_key.mappings = {
     [" "] = "which_key_ignore",
     [";"] = " Dashboard",
-    ["e"] = " Explorer",
+    ["e"] = { "<cmd>NvimTreeToggle<cr>",  " Explorer" },
     ["h"] = " No Highlight",
     ["T"] = " Terminal",
     p = {
