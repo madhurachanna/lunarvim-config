@@ -1,0 +1,42 @@
+{
+  "name": "snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "javascript",
+          "javascriptreact",
+          "vue",
+          "svelte"
+        ],
+        "path": "./javascript.json"
+      },
+      {
+        "language": [
+          "typescript",
+          "typescriptreact"
+        ],
+        "path": "./javascript.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./javascript.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./javascript.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./javascript.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./javascript.json"
+      }
+    ]
+  }
+}
