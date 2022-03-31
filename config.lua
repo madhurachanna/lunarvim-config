@@ -2,19 +2,26 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 -- lvim.colorscheme = "oceanic_material"
 -- lvim.colorscheme = "everforest"
-lvim.colorscheme = "miramare"
+-- lvim.colorscheme = "miramare"
 
 -- lvim.colorscheme = "zephyr"
 -- lvim.colorscheme = "deus"
 vim.opt.timeoutlen = 500
 
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+-- vim.opt.tabstop = 2
+-- vim.opt.shiftwidth = 2
 vim.list_extend(lvim.lsp.override, { "volar", "eslint", "eslintrc" })
+-- vim.list_extend(lvim.builtin.cmp.sources, { name = "vsnip" })
 -- local opts = {}
-require("lvim.lsp.manager").setup("vuels", {})
+-- require("lvim.lsp.manager").setup("vuels", {})
+
 require("lvim.lsp.manager").setup("tsserver", {})
-require("lvim.lsp.manager").setup("tailwindcss", {})
+require("luasnip.loaders.from_vscode").lazy_load()   -- this will load the default paths
+require("luasnip.loaders.from_vscode").lazy_load({paths = {"~/.config/lvim/snippets"}})  --this will load yours
+-- require("lvim.lsp.manager").setup("emmet_ls", {
+--   filetypes = { 'html', 'css', 'typescriptreact', 'javascriptreact', 'javascript' }
+-- })
+-- require("lvim.lsp.manager").setup("tailwindcss", {})
 lvim.lsp.buffer_mappings.normal_mode['K'] = nil
 lvim.lsp.buffer_mappings.normal_mode['gk'] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" }
 lvim.lsp.automatic_servers_installation = false
@@ -22,11 +29,14 @@ lvim.lsp.automatic_servers_installation = false
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
-lvim.builtin.dashboard.active = true
+lvim.builtin.alpha.active = true
+lvim.builtin.alpha.mode = "dashboard"
+lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
-lvim.builtin.treesitter.indent.enable = false
+lvim.builtin.treesitter.indent.enable = true
+-- lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.context_commentstring.enable = true
@@ -41,7 +51,7 @@ lvim.builtin.telescope.extensions["media_files"] = {
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
-  "javascript",
+  -- "javascript",
   "json",
   "python",
   "typescript",
@@ -67,26 +77,39 @@ lvim.builtin.treesitter.ensure_installed = {
 
 -- Additional Plugins
 lvim.plugins = {
-    { "JoosepAlviste/nvim-ts-context-commentstring" },
+    -- { "JoosepAlviste/nvim-ts-context-commentstring" },
     { "tpope/vim-fugitive" },
     { "nvim-telescope/telescope-media-files.nvim" },
     { "glepnir/zephyr-nvim" },
-    { "tomlion/vim-solidity" },
+    -- { "hrsh7th/cmp-vsnip" },
+    -- { "hrsh7th/vim-vsnip" },
+    -- { "sheerun/vim-polyglot" },
+    -- { "windwp/nvim-ts-autotag" },
+    -- { "alvan/vim-closetag" },
+    -- { "tomlion/vim-solidity" },
 
     -- Themes
     { "glepnir/oceanic-material" },
-    { "franbach/miramare" },
+    {
+      "franbach/miramare",
+      config = function ()
+          -- require("miramare").setup()
+          vim.cmd[[colorscheme miramare]]
+      end
+    },
     { "sainnhe/everforest" },
     { "ajmwagar/vim-deus" },
 }
+
+vim.cmd('inoremap <buffer> <C-s> <esc>yiwi<lt><esc>ea></><esc>hpF>i')
 
 ---------------------------------------------------------------------
 -- Keymappings
 ---------------------------------------------------------------------
 
 -- Copilot
-vim.g.copilot_no_tab_map = true
-vim.g.copilot_assume_mapped = true
+-- vim.g.copilot_no_tab_map = true
+-- vim.g.copilot_assume_mapped = true
 -- vim.api.nvim_set_keymap("i", "<Right>", 'copilot#Accept("")', { expr = true, silent = true })
 
 
@@ -265,3 +288,4 @@ lvim.builtin.which_key.mappings = {
         z = { "<cmd>TZAtaraxis<cr>", "toggle zen" },
     }
 }
+
