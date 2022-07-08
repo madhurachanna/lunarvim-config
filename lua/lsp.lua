@@ -2,7 +2,8 @@ require("lvim.lsp.manager").setup("tsserver", {})
 lvim.lsp.buffer_mappings.normal_mode['K'] = nil
 lvim.lsp.buffer_mappings.normal_mode['gk'] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" }
 lvim.lsp.automatic_servers_installation = false
-vim.list_extend(lvim.lsp.override, { "volar", "eslint", "eslintrc" })
+-- vim.list_extend(lvim.lsp.override, { "volar", "eslint", "eslintrc" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "volar", "eslint", "eslintrc" })
 
 
 -- set a formatter if you want to override the default lsp one (if it exists)

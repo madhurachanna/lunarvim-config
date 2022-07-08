@@ -1,34 +1,44 @@
 local plugins = {
-    -- { "JoosepAlviste/nvim-ts-context-commentstring" },
+    -- Themes
+    { "glepnir/oceanic-material" },
+    {
+      "sainnhe/everforest",
+      config =function ()
+        -- Colors for indent-blankline plugin
+        vim.cmd[[highlight IndentBlanklineContextChar guifg=#e67e80]]
+        vim.cmd[[highlight IndentBlanklineIndent1 guifg=#323b45 gui=nocombine]]
+      end
+
+    },
+    { "ajmwagar/vim-deus" },
+    { "franbach/miramare" },
     { "tpope/vim-fugitive" },
     { "nvim-telescope/telescope-media-files.nvim" },
-    { "glepnir/zephyr-nvim" },
     { "ap/vim-css-color" },
-    { "vimwiki/vimwiki" },
+    { "mg979/vim-visual-multi",
+        config = function ()
+          vim.cmd[[let g:VM_maps = {}]]
+          vim.cmd[[let g:VM_maps["Add Cursor Down"] = '<C-j>']]
+          vim.cmd[[let g:VM_maps["Add Cursor Up"] = '<C-k>']]
+          -- vim.g.VM_maps = {}
+          -- vim.g.VM_maps["Add Cursor Down"] = 'C-j'
+        end
+    },
     {
       "lukas-reineke/indent-blankline.nvim",
       config = function ()
-        vim.cmd("highlight IndentBlanklineContextChar guifg=#98C379")
+        vim.cmd[[highlight IndentBlanklineContextChar guifg=#e67e80]]
+        vim.cmd[[highlight IndentBlanklineIndent1 guifg=#323b45 gui=nocombine]]
         require("indent_blankline").setup {
           space_char_blankline = " ",
           show_current_context = true,
           show_current_context_start = true,
+          char_highlight_list = { "IndentBlanklineIndent1" }
         }
       end
     },
+    { "ferrine/md-img-paste.vim" }
 
-    -- Themes
-    { "glepnir/oceanic-material" },
-    { "sainnhe/everforest" },
-    { "ajmwagar/vim-deus" },
-    {
-      "franbach/miramare",
-      config = function ()
-          -- require("miramare").setup()
-          -- vim.cmd[[colorscheme miramare]]
-          -- lvim.builtin.lualine.options.theme = "auto"
-      end
-    },
 }
 
 

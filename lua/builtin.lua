@@ -4,7 +4,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
+-- lvim.builtin.nvimtree.show_icons.git = 0
 lvim.builtin.treesitter.indent.enable = true
 lvim.builtin.project.patterns = { '.git' }
 -- lvim.builtin.treesitter.autotag.enable = true
@@ -41,3 +41,22 @@ lvim.builtin.treesitter.ensure_installed = {
   "yaml",
   "vue"
 }
+
+local wiki_offset = {
+  filetype = "vimwiki",
+  text = "Vimwiki",
+  padding = 1,
+}
+
+table.insert(lvim.builtin.bufferline.options.offsets, wiki_offset)
+
+-- vim.list_extend(lvim.builtin.bufferline.options.offsets, {
+--   filetype = "vimwiki",
+--   text = "Vimwiki",
+--   padding = 1,
+-- })
+
+-- lvim.builtin.bufferline.options.offsets = {{
+--   filetype = "vimwiki",
+--   text = "Vimwiki"
+-- }}

@@ -39,7 +39,8 @@ local mappings = {
     },
     g = {
         name = " Git",
-        g = { "<cmd>vertical G<cr><cmd>vertical resize -15<cr>", "Git status" },
+        -- g = { "<cmd>vertical G<cr><cmd>vertical resize -15<cr>", "Git status" },
+        g = { "<cmd>G<cr>", "Git status" },
         P = { "<cmd>Git -c push.default=current push<cr>", "Git push" },
         p = { "<cmd>Gitsigns preview_hunk<cr>", "Git preview" },
         j = { "<cmd>Gitsigns next_hunk<cr>", "Next hunk" },
@@ -87,6 +88,12 @@ local mappings = {
         v = { "<cmd>vs<cr>", "Vertical split" },
         ["\\"] = { "<C-w>|<cr>", "Max Window" },
         ["="] = { "<C-w>=<cr>", "Equal Window" },
+    },
+    v = {
+        name = " Vimwiki",
+        v = { "<cmd>vs<cr><cmd>VimwikiIndex<cr><cmd>vertical resize -15<cr>", "Viki Index" },
+        -- v = { "<cmd>VimwikiIndex<cr>", "Viki Index" },
+        d = { "<cmd>DeleteBufferByExtension md<cr>", "Quite Viki" },
     },
     t = {
         name = " Telescope",
