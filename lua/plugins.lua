@@ -1,12 +1,13 @@
 local plugins = {
     -- Themes
-    { "glepnir/oceanic-material" },
+    -- { "glepnir/oceanic-material" },
     {
       "sainnhe/everforest",
       config =function ()
         -- Colors for indent-blankline plugin
         vim.cmd[[highlight IndentBlanklineContextChar guifg=#e67e80]]
         vim.cmd[[highlight IndentBlanklineIndent1 guifg=#323b45 gui=nocombine]]
+        vim.cmd[[let g:everforest_background = 'soft']]
       end
 
     },
@@ -37,8 +38,6 @@ local plugins = {
         }
       end
     },
-    { "ferrine/md-img-paste.vim" }
-
 }
 
 
