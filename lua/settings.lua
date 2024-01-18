@@ -1,10 +1,14 @@
 lvim.plugins = require("plugins")
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "everforest"
+-- lvim.colorscheme = "everforest"
+lvim.colorscheme = "deus"
+-- lvim.colorscheme = "miramare"
+-- lvim.colorscheme = "kanagawa"
+-- lvim.colorscheme = "gruvbox-material"
+
 vim.g.miramare_enable_italic = 1
 vim.g.miramare_disable_italic_comment = 1
--- lvim.colorscheme = "miramare"
 
 vim.opt.timeoutlen = 500
 vim.opt.foldlevelstart = 99
@@ -25,4 +29,3 @@ vim.g.neovide_cursor_vfx_particle_density = 10
 vim.g.neovide_cursor_vfx_particle_phase = 10
 vim.g.neovide_cursor_vfx_particle_curl = 0.02
 vim.g.neovide_cursor_vfx_particle_lifetime = 2
-

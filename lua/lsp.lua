@@ -1,4 +1,4 @@
-require("lvim.lsp.manager").setup("tsserver", {})
+-- require("lvim.lsp.manager").setup("tsserver", {})
 lvim.lsp.buffer_mappings.normal_mode['K'] = nil
 lvim.lsp.buffer_mappings.normal_mode['gk'] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show hover" }
 lvim.lsp.automatic_servers_installation = false

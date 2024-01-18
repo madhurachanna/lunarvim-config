@@ -1,7 +1,7 @@
 lvim.builtin.which_key.mappings = require("which_key")
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
+-- lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 -- lvim.builtin.nvimtree.show_icons.git = 0
@@ -13,6 +13,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.context_commentstring.enable = true
 lvim.builtin.telescope.defaults.layout_strategy = "vertical"
 lvim.builtin.telescope.defaults.sorting_strategy = "ascending"
+lvim.builtin.lualine.options.theme = "everforest"
 lvim.builtin.telescope.defaults.layout_config.vertical = {
   preview_width = 0.75,
   preview_height = 0.6,
@@ -22,7 +23,7 @@ lvim.builtin.telescope.defaults.layout_config.vertical = {
   mirror = true,
 }
 lvim.builtin.comment.pre_hook = function(ctx)
-    return require('ts_context_commentstring.internal').calculate_commentstring()
+  return require('ts_context_commentstring.internal').calculate_commentstring()
 end
 lvim.builtin.telescope.extensions["media_files"] = {
   filetypes = { "png", "webp", "jpg", "jpeg" },
@@ -34,7 +35,7 @@ lvim.builtin.treesitter.ensure_installed = {
   -- "javascript",
   "json",
   "python",
-  "typescript",
+  -- "typescript",
   "css",
   "rust",
   "java",
